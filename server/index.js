@@ -10,9 +10,14 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
+const PORT = process.env.PORT
+const MONGO_URI = process.env.MONGO_URI
+
+mongoose.set('strictQuery', false)
 mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    strictQuery: false
 },
     () => console.log(`CONNECTION 200 OK! WITH MONGOOSE`)
 )
