@@ -24,6 +24,7 @@ mongoose.connect(MONGO_URI, {
 
 app.get('/api', async (req, res) => {
     res.json({ 'message': 'NODE XPRESS SERVER' })
+    console.log('CLIENT PINGING ROUTE')
 })
 
 app.listen(PORT, async () => {
